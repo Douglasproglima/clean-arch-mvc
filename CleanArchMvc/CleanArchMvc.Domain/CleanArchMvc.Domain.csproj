@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-	<Folder Include="Interfaces\" />
-	<Folder Include="Validation\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Entities\" />
+		<Folder Include="Interfaces\" />
+		<Folder Include="Resources\" />
+		<Folder Include="Validation\" />
+	</ItemGroup>
 
 </Project>
