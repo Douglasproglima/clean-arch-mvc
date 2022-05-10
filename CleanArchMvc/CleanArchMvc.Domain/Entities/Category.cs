@@ -1,13 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using CleanArchMvc.Domain.Entities;
+﻿using System.Collections.Generic;
 using CleanArchMvc.Domain.Validation;
 using CleanArchMvc.Domain.Resources;
 
-namespace CleanArchMvc.Domain
+namespace CleanArchMvc.Domain.Entities
 {
     //Modificador sealed: Garante que essa class não poderá ser herdada
     public sealed class Category : EntityBase
