@@ -1,5 +1,4 @@
-﻿using CleanArchMvc.Domain;
-using CleanArchMvc.Domain.Entities;
+﻿using CleanArchMvc.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMvc.Infra.Data.Context
@@ -10,11 +9,10 @@ namespace CleanArchMvc.Infra.Data.Context
          * Que pode ser usado para interragir com o DB(TSQL)
          * DbContext é uma combinação dos padrões: UnitOfWork e Repository
          */
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -22,7 +20,16 @@ namespace CleanArchMvc.Infra.Data.Context
             base.OnModelCreating(builder);
 
             //Aplica algumas configurações nas entidades Product e Category definida no assembly ApplicationDbContext
+            //Vai procurar pelo arquivo de contexto, vai verificar as entidaes do DbSet<T>
+            //Como as classes da pasta EntitiesConfiguration herdam de IEntityTypeConfiguration ele vai enteder que a config foi definida
+            //Sendo irá fazer o reflexion e dar seguimento
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+            //Se não configurar em arquivos(classes) separadas a implementação seria a seguir:
+            /*
+            builder.ApplyConfiguration(new EntitiesConfiguration.CategoryConfiguration());
+            builder.ApplyConfiguration(new EntitiesConfiguration.ProductConfiguration());
+            */
         }
     }
 }
