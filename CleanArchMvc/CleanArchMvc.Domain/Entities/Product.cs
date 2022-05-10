@@ -70,14 +70,12 @@ namespace CleanArchMvc.Domain.Entities
             );
 
             DomainExceptionValidation.When(
-                price < 0, 
+                price < 0,
                 string.Format(MessagesValidation.msgValueInvalid, "Preço")
             );
 
-            DomainExceptionValidation.When(
-                stock < 0, 
-                string.Format(MessagesValidation.msgValueInvalid, "Estoque")
-           );
+            DomainExceptionValidation.When(stock < 0,
+                string.Format(MessagesValidation.msgValueInvalid, "Estoque"));
 
             DomainExceptionValidation.When(image.Length > 250,
                 string.Format(MessagesValidation.msgFieldMaxCharacter, "Imagem", 250));

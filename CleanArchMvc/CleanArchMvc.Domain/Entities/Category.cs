@@ -54,7 +54,7 @@ namespace CleanArchMvc.Domain
             
             DomainExceptionValidation.When(
                 name.Length < 3, 
-                string.Format(MessagesValidation.msgFieldMinCharacter, "Nome")
+                string.Format(MessagesValidation.msgFieldMinCharacter, "Nome", 3)
             );
 
             //Só atribui o valor caso atenda as regras acima.
