@@ -5,6 +5,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Folder Include="Entities\" />
+		<Folder Include="Interfaces\" />
 		<Folder Include="Resources\" />
 		<Folder Include="Validation\" />
 	</ItemGroup>
