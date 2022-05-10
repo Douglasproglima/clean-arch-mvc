@@ -77,7 +77,7 @@ namespace CleanArchMvc.Domain.Entities
             DomainExceptionValidation.When(stock < 0,
                 string.Format(MessagesValidation.msgValueInvalid, "Estoque"));
 
-            DomainExceptionValidation.When(image.Length > 250,
+            DomainExceptionValidation.When(image?.Length > 250,
                 string.Format(MessagesValidation.msgFieldMaxCharacter, "Imagem", 250));
 
             //Só atribui o valor caso atenda as regras acima.
