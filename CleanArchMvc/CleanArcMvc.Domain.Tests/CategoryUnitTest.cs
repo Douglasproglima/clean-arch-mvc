@@ -1,4 +1,4 @@
-using CleanArchMvc.Domain;
+using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Resources;
 using CleanArchMvc.Domain.Validation;
 using FluentAssertions;
