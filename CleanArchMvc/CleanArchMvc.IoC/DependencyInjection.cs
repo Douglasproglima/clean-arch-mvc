@@ -14,13 +14,14 @@ namespace CleanArchMvc.IoC
             /*
              * 1 - Registrar o contexto da aplicação
              * 2 - Definir o provedor do DB 
-             * 3 - Definir a string de conexão
+             * 3 - Definir a string de conexão (WebUI -> appsettings.json)
              * 4 - Informar o local onde ficará a migração(No caso o projeto 
              *     onde está definido o arquivo de contexto INFRA.DATA)
              */
             services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
+                //Montar conexão string https://www.connectionstrings.com/
+                options => options.UseSqlServer( 
+                    configuration.GetConnectionString("DefaultConnection"), //WebUI -> appsettings.json
                     assembly => assembly.MigrationsAssembly(
                         typeof(ApplicationDbContext).Assembly.FullName
                     )
