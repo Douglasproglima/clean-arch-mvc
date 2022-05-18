@@ -95,5 +95,8 @@ Layer Web.UI
 ### Implementation And When Not To Use
 ![CQRS](./assets/images/6.2-CQRS-Implementation.png)
 
+### CQRS And Use Mediator Pattern
+![CQRS](./assets/images/6.3-CQRS-Mediator-Pattern.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
