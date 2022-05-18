@@ -98,5 +98,14 @@ Layer Web.UI
 ### CQRS And Use Mediator Pattern
 ![CQRS](./assets/images/6.3-CQRS-Mediator-Pattern.png)
 
+### CQRS Implementation Class
+![CQRS](./assets/images/6.4-CQRS-Classes.png)
+
+### CQRS Handlers
+![CQRS](./assets/images/6.5-CQRS-Handlers.png)
+
+### CQRS Handlers X Mediator Pattern X Requests
+![CQRS](./assets/images/6.6-CQRS-Handlers-X-Requests.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
