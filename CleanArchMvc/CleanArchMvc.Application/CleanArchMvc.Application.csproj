@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Products\Commands\" />
     <Folder Include="CQRS\Products\Handlers\" />
-    <Folder Include="CQRS\Products\Queries\" />
     <Folder Include="DTOs\" />
     <Folder Include="Mappings\" />
   </ItemGroup>
