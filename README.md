@@ -107,5 +107,11 @@ Layer Web.UI
 ### CQRS Handlers X Mediator Pattern X Requests
 ![CQRS](./assets/images/6.6-CQRS-Handlers-X-Requests.png)
 
+### CQRS Handlers X Mediator 
+![CQRS](./assets/images/6.7-CQRS-Handlers-X-MediatR.png)
+
+### CQRS Fluxo das Requests
+![CQRS](./assets/images/6.8-CQRS-fluxo-request.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
