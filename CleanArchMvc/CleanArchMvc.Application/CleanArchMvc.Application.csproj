@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="CQRS\Products\Handlers\" />
     <Folder Include="DTOs\" />
-    <Folder Include="Mappings\" />
   </ItemGroup>
 
 </Project>
