@@ -50,10 +50,12 @@ namespace CleanArchMvc.Application.Services
             return _mapper.Map<ProductDTO>(result);
         }
 
+        /*
         public async Task<ProductDTO> GetProductCategory(int? id)
         {
             return await this.GetById(id);
         }
+        */
 
         public async Task Add(ProductDTO productDto)
         {
