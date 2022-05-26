@@ -18,6 +18,7 @@ namespace CleanArchMvc.Application.CQRS.Products.Handlers
         #region Constructor
         public GetProductsQueryHandler(IProductRepository productRepository)
         {
+            //Operador Null-Coalescing: Se productRepository for null, retorna a exception.
             _productRepository = productRepository ??
                 throw new ArgumentException(nameof(productRepository));
         }
