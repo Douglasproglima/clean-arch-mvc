@@ -113,5 +113,8 @@ Layer Web.UI
 ### CQRS Fluxo das Requests
 ![CQRS](./assets/images/6.8-CQRS-fluxo-request.png)
 
+### CQRS Comparando os Fluxos (Sem/Com o CQRS)
+![CQRS](./assets/images/6.9-CQRS-fluxo-request-sem-CRQS.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
