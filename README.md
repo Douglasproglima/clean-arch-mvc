@@ -83,6 +83,12 @@ Layer Infra.IoC
 Layer Web.UI
 ![Domain Infra.IoC](./assets/images/5.0-fluxo-camada-webui-para-infra-data.png)
 
+### Controllers e Views
+![WebUI](./assets/images/7-web-ui/1.0-controller-views.png)
+
+### Views: Bootstrap
+![WebUI](./assets/images/7-web-ui/1.1-controller-views.png)
+
 ## CQRS - Command Query Responsability Separation
 ---
 
