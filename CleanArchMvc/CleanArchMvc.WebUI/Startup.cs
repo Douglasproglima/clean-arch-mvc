@@ -42,6 +42,8 @@ namespace CleanArchMvc.WebUI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
+            //Define os arquivos html, css e js da pasta wwwroot
             app.UseStaticFiles();
 
             app.UseRouting();
