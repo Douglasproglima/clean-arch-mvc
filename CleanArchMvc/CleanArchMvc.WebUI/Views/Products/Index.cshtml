@@ -17,7 +17,7 @@
         <div>
             <div class="pull-left">
                 <a asp-action="Create" class="btn btn-primary">
-                    <span title="Register New" class="fas fa-plus"></span> Register New
+                    <span title="Cadastrar Novo Produto" class="fas fa-plus"></span> Novo
                 </a>
             </div>
         </div>
@@ -28,16 +28,10 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th></th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -55,15 +49,15 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
-                            <span class="fas fa-edit">Edit</span>
+                            <span class="fas fa-edit">Alterar</span>
                         </a>
 
                         <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
-                            <span class="fas fa-search">Details</span>
+                            <span class="fas fa-search">Detalhes</span>
                         </a>
 
                         <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
-                            <span class="fas fa-trash-alt">Delete</span>
+                            <span class="fas fa-trash-alt">Deletar</span>
                         </a>
                     </td>
                 </tr>
