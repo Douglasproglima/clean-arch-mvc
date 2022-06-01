@@ -60,6 +60,10 @@ namespace CleanArchMvc.WebUI.Controllers
 
             if (product == null) return NotFound();
 
+            var categories = await _categoryService.GetCategories();
+
+            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", product.CategoryId);
+
             return View(product);
         }
 
