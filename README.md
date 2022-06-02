@@ -127,5 +127,20 @@ Layer Web.UI
 
 ![CQRS](./assets/images/6.9.1-CQRS-consideracoes-finais-2.png)
 
+## Identity Com Clean Archtecture
+---
+
+## Solução/Proposta
+![Identity](./assets/images/8-identity/1-clean-architecture-identity.png)
+
+## Autenticação
+![Identity](./assets/images/8-identity/2-autenticacao-classe-startup.png)
+
+## Autorização/Atributos
+![Identity](./assets/images/8-identity/3-autorizacao-atributos.png)
+
+## Recursos p/ Autorização
+![Identity](./assets/images/8-identity/4-recursos-autorizacao.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
