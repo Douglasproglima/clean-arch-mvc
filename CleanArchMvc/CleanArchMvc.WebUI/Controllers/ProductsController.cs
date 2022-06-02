@@ -1,8 +1,10 @@
 ﻿using CleanArchMvc.Application.DTOs;
 using CleanArchMvc.Application.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace CleanArchMvc.WebUI.Controllers
@@ -12,13 +14,19 @@ namespace CleanArchMvc.WebUI.Controllers
         #region Propriedades/Atributos/Variáveis
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
+        private readonly IWebHostEnvironment _environment;
+
         #endregion
 
         #region Construtor
-        public ProductsController(IProductService productService, ICategoryService categoryService)
+        public ProductsController(
+            IProductService productService, 
+            ICategoryService categoryService, 
+            IWebHostEnvironment environment)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _environment = environment;
         }
         #endregion
 
@@ -28,6 +36,24 @@ namespace CleanArchMvc.WebUI.Controllers
         {
             var products = await _productService.GetProducts();
             return View(products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var product = await _productService.GetById(id);
+
+            if (product == null) return NotFound();
+
+            var imgPath = _environment.WebRootPath;
+            var image = Path.Combine(imgPath, "img\\" + product.Image);
+            var exists = System.IO.File.Exists(image);
+
+            ViewBag.ImageExist = exists;
+
+            return View(product);
         }
 
         [HttpGet]
@@ -85,6 +111,25 @@ namespace CleanArchMvc.WebUI.Controllers
             }
 
             return View(product);
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var product = await _productService.GetById(id);
+
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+
+        [HttpPost(), ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _productService.Remove(id);
+            return RedirectToAction(nameof(Index));
         }
         #endregion
     }

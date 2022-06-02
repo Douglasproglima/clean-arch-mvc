@@ -1,0 +1,32 @@
+﻿@model CleanArchMvc.Application.DTOs.ProductDTO
+
+@{
+    ViewData["Title"] = "Deletar Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<h5>Você tem certeza que realmente quer deletar essa produto?</h5>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <hr />
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="submit" value="Deletar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Voltar</a>
+        </div>
+    </form>
+</div>

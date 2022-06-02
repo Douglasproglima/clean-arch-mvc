@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CleanArchMvc.IoC\CleanArchMvc.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

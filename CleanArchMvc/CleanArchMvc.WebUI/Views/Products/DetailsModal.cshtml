@@ -1,0 +1,35 @@
+﻿@model CleanArchMvc.Application.DTOs.ProductDTO
+
+<h3>Detalhes do Produto</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Nome</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+        <dt class="col-sm-2">Descrição</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Description)</dd>
+        <dt class="col-sm-2">Imagem</dt>
+        <dd class="col-sm-10">
+            @if (!ViewBag.ImageExist)
+            {
+                <img src="~/img/noimage.png" class="rounded-circle" 
+                     height="300" width="300" asp-append-version="true" />
+            }
+            else
+            {
+                <img src="~/img/@Model.Image" class="rounded-circle" 
+                     height="300" width="300" asp-append-version="true" />
+            }
+        </dd>
+        <dt class="col-sm-2">Preço</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Price)</dd>
+        <dt class="col-sm-2">Estoque</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Stock)</dd>
+        <dt class="col-sm-2">Categoria</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Category.Name)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Alterar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>

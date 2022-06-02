@@ -52,15 +52,15 @@
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning btn-sm">
                             <span class="fas fa-edit">Alterar</span>
                         </a>
 
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary btn-sm">
                             <span class="fas fa-search">Detalhes</span>
                         </a>
 
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger btn-sm">
                             <span class="fas fa-trash-alt">Deletar</span>
                         </a>
                     </td>
@@ -68,4 +68,23 @@
             }
         </tbody>
     </table>
+
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <span class="page-link">Anterior</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <span class="page-link">
+                    2
+                    <span class="sr-only">(current)</span>
+                </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Próximo</a>
+            </li>
+        </ul>
+    </nav>
 </div>

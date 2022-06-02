@@ -1,0 +1,77 @@
+﻿@model CleanArchMvc.Application.DTOs.ProductDTO
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead class="table-secondary">
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Estoque</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Imagem</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Html.DisplayFor(model => model.Id)</th>
+            <td>@Html.DisplayFor(model => model.CategoryId) - @Html.DisplayFor(model => model.Category.Name)</td>
+            <td>@Html.DisplayFor(model => model.Description)</td>
+            <td>@Html.DisplayFor(model => model.Name)</td>
+            <td>@Html.DisplayFor(model => model.Stock)</td>
+            <td>@Html.DisplayFor(model => model.Price)</td>
+            <td>
+                @if (!ViewBag.ImageExist)
+                {
+                    <img src="~/img/0-no-image.png"
+                     class="rounded-circle"
+                     height="300"
+                     width="300"
+                     asp-append-version="true" />
+                }
+                else
+                {
+                    <img src="~/img/@Model.Image"
+                     class="rounded-circle"
+                     height="300"
+                     width="300"
+                     asp-append-version="true" />
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<hr />
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Detalhes
+</button>
+<hr />
+
+<div>
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+        <a asp-action="Index" class="btn btn-info">Voltar</a>
+    </div>
+</div>
+
+@section scripts{
+<script>
+    $(function () {
+        $(".details").click(function () {
+            var id = $(this).attr("data-id");
+            $("#myModal").load("Details?id=" + id, function () {
+                $("#myModal").modal();
+            })
+        });
+    })
+</script>
+}
