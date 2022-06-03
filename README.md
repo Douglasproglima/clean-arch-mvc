@@ -142,5 +142,37 @@ Layer Web.UI
 ## Recursos p/ Autorização
 ![Identity](./assets/images/8-identity/4-recursos-autorizacao.png)
 
+## Implementação
+* Adicionar ao projeto CleanArchMvc.Infra.Data as referências:
+
+```
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
+```
+
+* Criar a classe ApplicationUser que herda de IdentityUser
+```
+    public class ApplicationUser :IdentityUser { }
+```
+
+* Alterar a herança da classe ApplicationDbContext para:
+    public class ApplicationUser :IdentityUser { }
+```
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser> { ... }
+```
+* Acessar o Nuget Packeg Console, irá criar o arquivo de migration referente ao Identity
+```sh
+$ add-migration AddIdentityTables
+```
+
+* Nuget Packeg Console, rodar o comando abaixo para aplicar a migration criada acima
+para refletir no DB.
+```sh
+$ update-database
+```
+
+# Diagrama das Tabelas do Identity
+![Identity](./assets/images/8-identity/5-diagrama-db.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)

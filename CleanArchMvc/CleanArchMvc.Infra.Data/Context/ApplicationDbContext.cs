@@ -1,9 +1,11 @@
 ﻿using CleanArchMvc.Domain.Entities;
+using CleanArchMvc.Infra.Data.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMvc.Infra.Data.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         /* Uma instância da classe DbContext representa uma sessão no banco de dados.
          * Que pode ser usado para interragir com o DB(TSQL)
