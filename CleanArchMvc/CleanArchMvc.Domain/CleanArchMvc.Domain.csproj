@@ -6,7 +6,7 @@
 
 	<ItemGroup>
 		<Folder Include="Entities\" />
-		<Folder Include="Interfaces\" />
+		<Folder Include="Interfaces\Account\" />
 		<Folder Include="Resources\" />
 		<Folder Include="Validation\" />
 	</ItemGroup>
