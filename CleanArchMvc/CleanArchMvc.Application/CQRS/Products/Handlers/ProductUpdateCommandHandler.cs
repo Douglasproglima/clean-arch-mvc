@@ -29,7 +29,7 @@ namespace CleanArchMvc.Application.CQRS.Products.Handlers
         {
             var product = await _productRepository.GetByIdAsync(request.Id);
 
-            if (product == null)
+            if (product is null)
                 throw new ApplicationException($"Erro ao atualizar entidade!");
 
             product.Update(

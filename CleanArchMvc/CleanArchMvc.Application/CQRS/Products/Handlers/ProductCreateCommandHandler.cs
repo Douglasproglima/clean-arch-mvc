@@ -34,7 +34,7 @@ namespace CleanArchMvc.Application.CQRS.Products.Handlers
                 request.Image
             );
 
-            if (product == null)
+            if (product is null)
                 throw new ApplicationException($"Erro ao criar entidade!");
 
             product.CategoryId = request.CategoryId;

@@ -30,7 +30,7 @@ namespace CleanArchMvc.Application.Services
         {
             var productsQuery = new GetProductsQuery();
 
-            if (productsQuery == null)
+            if (productsQuery is null)
                 throw new Exception($"Não foi possível carregar a entidade!");
 
             var result = await _mediator.Send(productsQuery);
