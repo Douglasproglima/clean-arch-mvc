@@ -2,7 +2,7 @@
 using CleanArchMvc.Application.Mappgins;
 using CleanArchMvc.Application.Services;
 using CleanArchMvc.Domain.Interfaces;
-using CleanArchMvc.Domain.Interfaces.Account;
+using CleanArchMvc.Domain.Account;
 using CleanArchMvc.Infra.Data.Context;
 using CleanArchMvc.Infra.Data.Identity;
 using CleanArchMvc.Infra.Data.Repositories;
@@ -36,24 +36,11 @@ namespace CleanArchMvc.IoC
                 )
             );
 
-            RegisterAppCookie(services);
-            RegisterServicesIdentity(services);
-            RegisterScopedEntities(services);
-
-            //Retorna o assembly a onde foi definido os Handlers do CQRS
-            var myHandlers = AppDomain.CurrentDomain.Load("CleanArchMvc.Application");
-            services.AddMediatR(myHandlers);
-
-            return services;
-        }
-
-        internal static void RegisterAppCookie(IServiceCollection services)
-        {
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Account/Login");
-        }
 
-        internal static void RegisterServicesIdentity(IServiceCollection services)
-        {
+            services.AddScoped<IAuthenticate, AuthenticateService>();
+            services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
             //Serviços do Identity
             services
                 .AddIdentity<ApplicationUser, IdentityRole>()
@@ -63,10 +50,7 @@ namespace CleanArchMvc.IoC
             //Registrar o Serviços implementados na camada Domain (Autenticação, User e Role)
             services.AddScoped<IAuthenticate, AuthenticateService>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
-        }
 
-        internal static void RegisterScopedEntities(IServiceCollection services)
-        {
             /* Transient(AddTransient): Cria os objs a cada vez que forem solicitados;
              * Scoped(AddScoped)......: Cria os objs uma vez por solicitação;
              * Singleton(AddSingleton): Cria os objs apenas na primeira vez que for solicitado.
@@ -77,7 +61,14 @@ namespace CleanArchMvc.IoC
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
+
+            //Retorna o assembly a onde foi definido os Handlers do CQRS
+            var myHandlers = AppDomain.CurrentDomain.Load("CleanArchMvc.Application");
+            services.AddMediatR(myHandlers);
+
+            return services;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using CleanArchMvc.Domain.Interfaces.Account;
+﻿using CleanArchMvc.Domain.Account;
 using CleanArchMvc.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -25,27 +25,29 @@ namespace CleanArchMvc.WebUI.Controllers
         [HttpGet]
         public IActionResult Login (string url)
         {
-            return View(new LoginViewDTO()
+            return View(new LoginViewModel()
             {
-                Url = url
+                ReturnUrl = url
             });
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewDTO loginDTO)
+        public async Task<IActionResult> Login(LoginViewModel loginDTO)
         {
             var result = await _authenticate.Authenticate(loginDTO.Email, loginDTO.Password);
 
-            if (!result)
+            if (result)
             {
+                if(string.IsNullOrEmpty(loginDTO.ReturnUrl))
+                    return RedirectToAction("Index", "Home");
+
+                return RedirectToAction(loginDTO.ReturnUrl);
+            }
+            else
+            { 
                 ModelState.AddModelError(string.Empty, "Falha ao realizar login. A senha precisa ser mais segura.");
                 return View(loginDTO);
             }
-
-            if(string.IsNullOrEmpty(loginDTO.Url))
-                return RedirectToAction("Index", "Home");
-
-            return RedirectToAction(loginDTO.Url);
         }
 
         [HttpGet]
@@ -55,7 +57,7 @@ namespace CleanArchMvc.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewDTO registerDTO)
+        public async Task<IActionResult> Register(RegisterViewModel registerDTO)
         {
             var result = await _authenticate.RegisterUser(registerDTO.Email, registerDTO.Password);
 

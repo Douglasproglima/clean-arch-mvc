@@ -2,16 +2,18 @@
 
 namespace CleanArchMvc.WebUI.ViewModels
 {
-    public class RegisterViewDTO
+    public class RegisterViewModel
     {
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Senha é obrigatório!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Repita a Senha")]
         [DataType(DataType.Password)]
+        [Display(Name = "Repita a Senha")]
         [Compare("Password", ErrorMessage = "Senha é diferente.")]
         public string ConfirmPassword { get; set; }
     }
