@@ -38,7 +38,7 @@ namespace CleanArchMvc.Application.DTOs
         [DisplayName("Product Image")]
         public string Image { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public Category Category { get; set; }
 
         [DisplayName("Categories")]
