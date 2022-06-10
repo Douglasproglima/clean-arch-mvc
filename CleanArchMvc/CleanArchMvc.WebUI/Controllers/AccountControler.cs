@@ -23,11 +23,11 @@ namespace CleanArchMvc.WebUI.Controllers
 
         #region Métodos Login
         [HttpGet]
-        public IActionResult Login (string url)
+        public IActionResult Login (string returnUrl)
         {
             return View(new LoginViewModel()
             {
-                ReturnUrl = url
+                ReturnUrl = returnUrl
             });
         }
 

@@ -35,19 +35,18 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-outline-dark">Log in</button>
+                <div class="col-md-2 col-md-10">
+                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Log in</button>
                 </div>
             </div>
 
             <p>
-                <a asp-action="Register">Criar uma nova conta?</a>
+                <a asp-action="Register">Register as a new user?</a>
             </p>
 
         </form>
     </div>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
