@@ -21,9 +21,10 @@ namespace CleanArchMvc.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfraStructureAPI(Configuration);
-            services.AddControllers().AddJsonOptions(options => {
-                options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-            });
+            services.AddControllers().AddNewtonsoftJson(options => 
+                options.SerializerSettings.ReferenceLoopHandling = 
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArchMvc.API", Version = "v1" });
