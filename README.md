@@ -180,5 +180,18 @@ $ update-database
 ## Fluxo
 ![Identity](./assets/images/8-identity/7-fluxo-projeto.png)
 
+
+## WEB API RESTFul
+---
+
+### RESTFul - Representation State Transfer
+![Identity](./assets/images/9-webapi/1-rest.png)
+
+### Principais Verbos HTTP
+![Identity](./assets/images/9-webapi/2-verbos-http.png)
+
+### Grupo de Status e Principais Status Codes
+![Identity](./assets/images/9-webapi/2-status-code.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
