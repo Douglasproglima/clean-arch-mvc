@@ -177,5 +177,8 @@ $ update-database
 ## Implementação
 ![Identity](./assets/images/8-identity/6-conceito-final.png)
 
+## Fluxo
+![Identity](./assets/images/8-identity/7-fluxo-projeto.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
