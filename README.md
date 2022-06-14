@@ -193,5 +193,33 @@ $ update-database
 ### Grupo de Status e Principais Status Codes
 ![Identity](./assets/images/9-webapi/2-status-code.png)
 
+## JSON Web Tokens - JWT
+---
+
+### Conceitos
+---
+![jwt](./assets/images/10-jwt/0-conceito.png)
+
+### Constituição - header.payload.signature
+![jwt](./assets/images/10-jwt/1-header-payload-signature.png)
+
+### Montagem
+![jwt](./assets/images/10-jwt/2-montagem.png)
+
+### Fluxo
+![jwt](./assets/images/10-jwt/3-fluxo.png)
+
+### Vantagens
+![jwt](./assets/images/10-jwt/4-vantagens.png)
+
+### Recursos Utilizados
+![jwt](./assets/images/10-jwt/5-recursos-usados.png)
+
+### Implementações
+![jwt](./assets/images/10-jwt/6-implementacoes.png)
+
+### Roteiro
+![jwt](./assets/images/10-jwt/7-roteiro.png)
+
 > Todos os créditos são do professor @Macorrati | 
 Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
