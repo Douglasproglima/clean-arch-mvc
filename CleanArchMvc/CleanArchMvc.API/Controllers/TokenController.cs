@@ -20,17 +20,31 @@ namespace CleanArchMvc.API.Controllers
         private readonly IAuthenticate _authenticate;
         private readonly IConfiguration _configuration;
         #endregion
-        
+
         #region Construtor
         public TokenController(IAuthenticate authenticate, IConfiguration configuration)
         {
-            _authenticate = authenticate ?? 
+            _authenticate = authenticate ??
                 throw new ArgumentNullException(nameof(authenticate));
             _configuration = configuration;
         }
         #endregion
 
         #region Métodos Login
+        [HttpPost("CreateUser")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<ActionResult> CreateUser([FromBody] LoginDTO userInfo)
+        {
+            var result = await _authenticate.RegisterUser(userInfo.Email, userInfo.Password);
+            if (result)
+                return Ok($"Usuário '{userInfo.Email}' foi criado com sucesso!");
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Falha ao criar usuário!");
+                return BadRequest(ModelState);
+            }
+        }
+
         [HttpPost("LoginUser")]
         public async Task<ActionResult<UserToken>> Login([FromBody] LoginDTO userInfo)
         {
@@ -49,7 +63,6 @@ namespace CleanArchMvc.API.Controllers
             //Declaração do usuário
             var claims = new[]
             {
-                new Claim("email", userInfo.Email),
                 new Claim("email", userInfo.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
