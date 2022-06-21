@@ -24,15 +24,14 @@ namespace CleanArchMvc.API
 
             //Ativa autenticação e valida o token
             services.AddInfraStructureJWT(Configuration);
+            
+            //Ajusta o código do Swargger para permitir informar o Token na requests dos endpoints
+            services.AddInfraStructureSwagger();
 
             services.AddControllers().AddNewtonsoftJson(options => 
                 options.SerializerSettings.ReferenceLoopHandling = 
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArchMvc.API", Version = "v1" });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,9 +45,10 @@ namespace CleanArchMvc.API
             }
 
             app.UseHttpsRedirection();
+            app.UseStatusCodePages();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,5 +1,6 @@
 ﻿using CleanArchMvc.API.DTOS;
 using CleanArchMvc.Domain.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,7 @@ namespace CleanArchMvc.API.Controllers
         #region Métodos Login
         [HttpPost("CreateUser")]
         [ApiExplorerSettings(IgnoreApi = true)]
+        [Authorize]
         public async Task<ActionResult> CreateUser([FromBody] LoginDTO userInfo)
         {
             var result = await _authenticate.RegisterUser(userInfo.Email, userInfo.Password);
@@ -45,6 +47,7 @@ namespace CleanArchMvc.API.Controllers
             }
         }
 
+        [AllowAnonymous] // Garante que qualquer usuário terá acesso a esse endpoint
         [HttpPost("LoginUser")]
         public async Task<ActionResult<UserToken>> Login([FromBody] LoginDTO userInfo)
         {
