@@ -21,6 +21,10 @@ namespace CleanArchMvc.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfraStructureAPI(Configuration);
+
+            //Ativa autenticação e valida o token
+            services.AddInfraStructureJWT(Configuration);
+
             services.AddControllers().AddNewtonsoftJson(options => 
                 options.SerializerSettings.ReferenceLoopHandling = 
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore
