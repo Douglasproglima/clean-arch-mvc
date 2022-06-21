@@ -108,7 +108,7 @@ namespace CleanArchMvc.WebUI.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _categoryService.Remove(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
         #endregion
     }
