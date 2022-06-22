@@ -1,7 +1,7 @@
 ﻿@model CleanArchMvc.WebUI.ViewModels.RegisterViewModel
 
 @{
-    ViewData["Title"] = "Register User";
+    ViewData["Title"] = "Cadastro de Usuários";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -25,8 +25,8 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-info">Return</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-info">Voltar</a>
         </form>
     </div>
 </div>
