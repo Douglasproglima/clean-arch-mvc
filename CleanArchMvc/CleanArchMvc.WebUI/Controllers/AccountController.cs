@@ -8,13 +8,13 @@ namespace CleanArchMvc.WebUI.Controllers
     public class AccountController : Controller
     {
         #region Atributos/Propriedades
-        private readonly IAuthenticate _authenticate;
+        private readonly IAuthenticate _authentication;
         #endregion
 
         #region Construtor
-        public AccountController(IAuthenticate authenticate)
+        public AccountController(IAuthenticate authentication)
         {
-            _authenticate = authenticate;
+            _authentication = authentication;
         }
         #endregion
 
@@ -34,14 +34,14 @@ namespace CleanArchMvc.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginDTO)
         {
-            var result = await _authenticate.Authenticate(loginDTO.Email, loginDTO.Password);
+            var result = await _authentication.Authenticate(loginDTO.Email, loginDTO.Password);
 
             if (result)
             {
                 if(string.IsNullOrEmpty(loginDTO.ReturnUrl))
                     return RedirectToAction("Index", "Home");
 
-                return RedirectToAction(loginDTO.ReturnUrl);
+                return Redirect(loginDTO.ReturnUrl);
             }
             else
             { 
@@ -59,7 +59,7 @@ namespace CleanArchMvc.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerDTO)
         {
-            var result = await _authenticate.RegisterUser(registerDTO.Email, registerDTO.Password);
+            var result = await _authentication.RegisterUser(registerDTO.Email, registerDTO.Password);
 
             if (!result)
             {
@@ -72,7 +72,7 @@ namespace CleanArchMvc.WebUI.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await _authenticate.Logout();
+            await _authentication.Logout();
             return Redirect("/Account/Login");
         }
         #endregion
