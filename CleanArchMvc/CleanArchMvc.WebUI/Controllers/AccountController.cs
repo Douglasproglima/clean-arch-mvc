@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace CleanArchMvc.WebUI.Controllers
 {
-    public class AccountControler : Controller
+    public class AccountController : Controller
     {
         #region Atributos/Propriedades
         private readonly IAuthenticate _authenticate;
         #endregion
 
         #region Construtor
-        public AccountControler(IAuthenticate authenticate)
+        public AccountController(IAuthenticate authenticate)
         {
             _authenticate = authenticate;
         }
