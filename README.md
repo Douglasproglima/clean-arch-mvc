@@ -224,5 +224,9 @@ $ update-database
 ### Usando JWT
 ![jwt](./assets/images/10-jwt/8-usando-jwt.png)
 
+## Migração .NET 5 para .NET 6
+---
+![net6](./assets/images/11-net6/1-migracao-net5-net6.png)
+
 > Todos os créditos são do professor @Macorrati | 
-Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
+Feito com ❤️ por Douglas Lima <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="20px"></h2> [Entre em contato!](https://www.linkedin.com/in/douglasproglima)
